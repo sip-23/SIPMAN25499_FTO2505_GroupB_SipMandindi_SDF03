@@ -12,13 +12,10 @@
 
 body {
     font-family: "Open Sans", Arial, sans-serif;
-    height: 100%;
     min-height: 100vh;
     background-color: #fafafa;
     color: #262626;
     padding-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Header - image */
@@ -37,7 +34,7 @@ img {
 }
 
 .profile {
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
 .profile::after {
@@ -54,60 +51,75 @@ img {
     align-items: center;
     margin-bottom: 30px;
     margin-right: 5rem;
-    width: calc(30% - 2rem); /* Helps with responsive designs */
-    border-radius: 50%;
-    border: 5px solid grey;
+    width: calc(30% - 1rem); /* Helps with responsive designs */ 
 }
 
 .profile_image img {
+    width: 8rem;
     border-radius: 50%;
-    border: 5px solid grey;
+    border: 5px solid grey; 
 }
 
 .profile-user-settings {
     float: left;
     display: flex;
     flex-direction: row;
-    width: calc(60% - 2rem);
+    width: calc(70% - 2rem);
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .profile-stats {
-    display: inline-block;
     float: left;
-    width: calc(60% - 2rem);
+    display: inline-block;
+    width: calc(70% - 2rem);
+    margin-top: 2rem;
 }
 
 .profile-bio {
     display: inline-block;
     margin: 30px auto 30px;
+    float: left;
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: calc(70% - 2rem);
+    line-height: 1.5;
+    margin-top: 2rem;
 }
 
 .profile-user-name {
     display: inline-block;
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: 3rem;
+    font-weight: 300;
     margin: 8px;
     cursor: pointer;
 }
 
 /* Uncommenting out and making all bottons allow for pointer */ 
 .btn {
+    display: inline-block;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    padding: 0;
     cursor: pointer;
 }
 
+.btn:focus {
+    outline: 1rem auto #49fe;
+}
 
 .profile-edit-btn {
     display: inline-block;
     border: 1px solid #dcdcdc99;
-    line-height: 2;
+    line-height: 1.6;
     background: transparent;
     background-color: #ddd;
     border-radius: 0.5rem;
     color: #262626;
-    padding: 0 2rem;
-    margin: 0.5rem;
+    padding: 0 1.5rem;
+    margin-left: 1.5rem;
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -115,15 +127,17 @@ img {
 .profile-settings-btn {
     display: inline-block;
     border: 1px solid #dcdcdc99;
-    line-height: 2;
+    line-height: 1.6;
     background: transparent;
     background-color: #ddd;
     border-radius: 0.5rem;
     color: #262626;
-    padding: 0 2rem;
-    margin: 0.5rem;
-    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    margin-left: 1rem;
+    font-size: 2rem;
 }
+
+/* Profile stats */
 
 .profile-stats ul {
   display: flex;
@@ -134,12 +148,16 @@ img {
     display: inline-block;
     font-size: 1.5rem;
     line-height: 1.5;
-    margin-right: 3rem;
+    margin-right: 4rem;
     cursor: pointer;
 }
 
+.profile-stats li:last-of-type {
+    margin-right: 0;
+}
+
 .profile-stat-count {
-    font-weight: 1000;
+    font-weight: 600;
     display: inline-block;
 }
 
@@ -153,42 +171,218 @@ img {
 
 .profile-real-name {
     font-size: 2rem;
-    font-weight: 1000;
+    font-weight: 600;
     line-height: 1.5;
     margin: 1.5rem;
 }
 
 /* Main - Gallary Container */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to next row */
+    margin: -1rem -1rem;
+    padding-bottom: 3 rem ;
+}
 
-.main {
-    padding-bottom: 20px;
+.gallery-item {
+    position: relative; /* position relative to its normal position - also wnat to allow overlay effect*/
+    display: flex;
+    flex: 1 0 25rem; /* trying to sets the ideal size of the item */
+    margin: 1rem;       /* Creates gridlines between gallery items. */
+    color: #fff;
+    cursor: pointer;
+}
+
+.gallery-item-info {
+    display: none;
+}
+
+.gallery-item:hover .gallery-item-info {
+    position: absolute;
     display: flex;
     justify-content: center;
-    width: 1300px;
+    align-items: center;
+    width: 100%;
     height: 100%;
-    flex-direction: column;
+    top: 0;
+    background-color: rgba(0,0,0,0.3);
 }
 
-.gallery {
-    display: grid;
+.gallery-item:focus .gallery-item-info {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 100%;
-    grid-gap: 5px;
-    gap: 100px;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1000px;
-    max-height: ;
-    margin: auto;
-    grid-auto-rows: 255px;
-    padding: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   /* give an shadow effect. (1. horizontal offset - shadow centered horzontally with no shift, 2. Vertical offset. 3. Blur radius) */
-    border-radius: 8px;
+    top: 0;
+    background-color: rgba(0,0,0,0.3);
 }
 
-.gallary-item img {
+.gallery-item-info li {
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+.gallery-item-likes {
+    margin-right: 2rem;
+}
+
+.gallery-item-type {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 0.3rem 0.3rem 0.3rem rgba(0,0,0,0.1);
+}
+
+.visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px, 1px, 1px, 1px)
+}
+
+.fa-clone {
+    transform: rotateY(180deg);
+}
+
+.fa-comment {
+    transform: rotateY(180deg);
+}
+
+.loader {
+    width: 5rem;
+    height: 5rem;
+    border: 0.5rem solid #999;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: loader 500ms linear infinite;
+}
+
+.gallery-item img {
     width: 100%;
     height: 100%; 
-    object-fit: cover ;                        /* Ensure the image fits the container while preserving the aspect ratio . cover: entire container is covered and elements _ratio is preserved and content is scalled to fill the container entirely */
+    object-fit: cover ;    /* Ensure the image fits the container while preserving the aspect ratio . cover: entire container is covered and elements _ratio is preserved and content is scalled to fill the container entirely */
     border-bottom: 1px solid #ddd ;
 }
 
+/* media Query */
 
+@media screen and (max-width: 40rem) {
+    .profile {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3rem 0;
+    }
+    .profile::after {
+        display: none ;
+    }
+    .profile-image {
+        float: none;
+        width: auto;   
+    }
+    .profile-user-settings {
+        float: none;
+        width: auto; 
+        flex-basis: calc(100% - 10rem); 
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .profile-stats {
+        float: none;
+        width: auto; 
+        flex-basis: 100%;
+        order: 1; 
+        margin-top: 1.5rem;
+    }
+    .profile-stats ul {
+        display: flex;
+        padding: 1.3rem 0;
+        border-top: 0.2rem solid #dadada;
+        border-bottom: 0.2rem solid #dadada;
+        text-align: center;
+    }
+    .profile-stats li {
+        flex: 1;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .profile-stat-count {
+        display: block;
+    }
+    .profile-bio {
+        float: none;
+        width: auto; 
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        flex-basis: 100%;  
+    }
+    .profile-image img {
+        width: 7rem;
+    }
+    .profile-user-name {
+        font-size: 2rem;
+    }
+    .profile-edit-btn {
+        order: 1;
+        padding: 0;
+        text-align: center;
+        margin-top: 1rem;
+        margin-left: 0;
+        flex-basis: 100%;
+    }
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@supports (display: grid) {
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(3, auto);
+        column-gap: 3rem;
+        text-align: center;
+    }
+    .profile-image {
+        grid-row: 1 / -1;
+    }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(autofit, min-max(22rem, 1fr));
+        gap: 2rem;
+    }
+    .profile-image, .profile-user-settings, .profile-stats, .profile-bio, .gallery-item, .gallery {
+        width: auto;
+        margin: 0;
+    }
+}
+
+@media (max-width: 40rem) {
+    .profile {
+        grid-template-columns: auto 1fr;
+        row-gap: 1.5rem;
+    }
+    .profile-image {
+        grid-row: 1 / 2;
+    }
+    .profile-user-settings {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1.2rem;
+    }
+    .profile-edit-btn, .profile-stats, .profile-bio {
+        grid-column: 1 / -1;
+    }
+    .profile-user-settings, .profile-edit-btn, .profile-settings-btn, .profile-bio, .profile-stats {
+        margin: 0;
+    }
+}
