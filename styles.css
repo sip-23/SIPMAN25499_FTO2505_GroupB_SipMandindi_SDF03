@@ -17,6 +17,7 @@ body {
     background-color: #fafafa;
     color: #262626;
     padding-bottom: 3rem;
+    display: flex;
     flex-direction: column;
 }
 
@@ -24,7 +25,6 @@ body {
 
 img {
     display: block;
-    object-fit: cover;
 }
 
 /* Header - Profile Container */
@@ -37,12 +37,6 @@ img {
 }
 
 .profile {
-    display: flex;
-    flex-direction: row;  /* main axis, left to right */
-    align-items: center;  /* cross axis on the vertical axis */
-    margin: auto;
-    font-size: 2em;
-    color: black;
     padding: 3rem 0;
 }
 
@@ -55,10 +49,14 @@ img {
 .profile-image {
     float: left;    /* declared left allows for text wrapping around the image */
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     margin-bottom: 30px;
     margin-right: 5rem;
     width: calc(30% - 2rem); /* Helps with responsive designs */
+    border-radius: 50%;
+    border: 5px solid grey;
 }
 
 .profile_image img {
@@ -76,13 +74,14 @@ img {
 }
 
 .profile-stats {
+    display: inline-block;
     float: left;
     width: calc(60% - 2rem);
 }
 
 .profile-bio {
-    text-align: left;
-    margin: 0 auto 30px;
+    display: inline-block;
+    margin: 30px auto 30px;
 }
 
 .profile-user-name {
@@ -90,24 +89,17 @@ img {
     font-size: 2.5rem;
     font-weight: 500;
     margin: 8px;
+    cursor: pointer;
 }
 
-/* Commenting out at the moment to focus on specific buttons 
+/* Uncommenting out and making all bottons allow for pointer */ 
 .btn {
-    background: transparent;
-    border: 1px solid #dcdcdc99;
-    border-radius: 4px;
-    color: #262626;
-    font-weight: 600;
-    padding: 5px 9px;
     cursor: pointer;
-    margin-right: 8px;
-    margin-left: 8px;
-    font-size: 14px;
 }
-*/
+
 
 .profile-edit-btn {
+    display: inline-block;
     border: 1px solid #dcdcdc99;
     line-height: 2;
     background: transparent;
@@ -117,9 +109,11 @@ img {
     padding: 0 2rem;
     margin: 0.5rem;
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .profile-settings-btn {
+    display: inline-block;
     border: 1px solid #dcdcdc99;
     line-height: 2;
     background: transparent;
@@ -133,27 +127,38 @@ img {
 
 .profile-stats ul {
   display: flex;
-  list-style: none;
+  list-style:decimal;
 }
 
 .profile-stats li {
-  margin-right: 40px;
-  text-align: center;
-  font-size: 16px;
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-right: 3rem;
+    cursor: pointer;
 }
 
 .profile-stat-count {
-  font-weight: 1000;
-  display: block;
+    font-weight: 1000;
+    display: inline-block;
 }
 
-
-
-.profile-bio .profile-real-name {
-    font-weight: bold;
+.profile-bio {
+    display: inline;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 1.5rem;
 }
 
-/* Main - Galary Container */
+.profile-real-name {
+    font-size: 2rem;
+    font-weight: 1000;
+    line-height: 1.5;
+    margin: 1.5rem;
+}
+
+/* Main - Gallary Container */
 
 .main {
     padding-bottom: 20px;
