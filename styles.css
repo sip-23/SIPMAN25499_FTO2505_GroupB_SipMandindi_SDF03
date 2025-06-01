@@ -20,7 +20,22 @@ body {
     flex-direction: column;
 }
 
-/* Header - Profile Conainer */
+/* Header - image */
+
+img {
+    display: block;
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Header - Profile Container */
+
+.container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
 
 .profile {
     display: flex;
@@ -32,15 +47,6 @@ body {
     font-size: 2em;
     color: black;
     padding: 16px 0;
-}
-
-/* Adding a comment */
-
-img {
-    display: block;
-    width: 230px;
-    height: 230px;
-    object-fit: cover;
 }
 
 .profile-image {
@@ -70,16 +76,17 @@ img {
 }
 
 .btn {
-  background: transparent;
-  border: 1px solid #dbdbdb;
-  border-radius: 4px;
-  color: #262626;
-  font-weight: 600;
-  padding: 5px 9px;
-  cursor: pointer;
-  margin-right: 8px;
-  margin-left: 8px;
-  font-size: 14px;
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    color: #262626;
+    font-weight: 600;
+    padding: 5px 9px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-left: 8px;
+    font-size: 14px;
 }
 
 .profile-user-name {
